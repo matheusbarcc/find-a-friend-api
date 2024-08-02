@@ -62,7 +62,7 @@ describe('Register Service', () => {
     await sut.execute({
       name: 'Happy Tails Animal Rescue',
       author_name: 'Jane Doe',
-      email: 'jane.doe@example.com',
+      email,
       password: '123',
       whatsapp: '+1234567890',
       cep: '12345-678',
@@ -79,7 +79,7 @@ describe('Register Service', () => {
       sut.execute({
         name: 'Happy Tails Animal Rescue',
         author_name: 'Jane Doe',
-        email: 'jane.doe@example.com',
+        email,
         password: '123',
         whatsapp: '+1234567890',
         cep: '12345-678',
