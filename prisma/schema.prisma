@@ -23,6 +23,8 @@ model Pet {
   independency String
   environment  String
 
+  created_at DateTime @default(now())
+
   org    Org    @relation(fields: [org_id], references: [id])
   org_id String
 
@@ -44,8 +46,10 @@ model Org {
   city         String
   state        String
 
-  latitude  String
-  longitude String
+  latitude  Decimal
+  longitude Decimal
+
+  created_at DateTime @default(now())
 
   pets Pet[]
 
