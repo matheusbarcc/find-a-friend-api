@@ -1,9 +1,17 @@
 import { Org, Prisma } from '@prisma/client'
-import { OrgsRepo } from '../orgs-repo'
+import { fetchByCityParams, OrgsRepo } from '../orgs-repo'
 import { randomUUID } from 'node:crypto'
 
 export class InMemoryOrgsRepo implements OrgsRepo {
   public items: Org[] = []
+
+  async fetchIdsByCity(params: fetchByCityParams) {
+    const orgs = this.items.filter(
+      (item) => item.state === params.state && item.city === params.city,
+    )
+
+    return orgs.map((org) => org.id)
+  }
 
   async findByEmail(email: string) {
     const org = this.items.find((item) => item.email === email)
