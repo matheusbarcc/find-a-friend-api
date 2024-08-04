@@ -10,7 +10,6 @@ export interface fetchWithFiltersQuery {
 }
 export interface PetsRepo {
   fetchWithFilters(query: fetchWithFiltersQuery, page: number): Promise<Pet[]>
-  fetchByOrgIds(orgIds: string[], page: number): Promise<Pet[]>
   findById(id: string): Promise<Pet | null>
   create(data: Prisma.PetUncheckedCreateInput): Promise<Pet>
 }
